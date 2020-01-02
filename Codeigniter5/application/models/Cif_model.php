@@ -127,7 +127,9 @@
 					grp.flag as flag,
 					grp.segmen as segmen,
 					rm.nama as RM_NAME,
-					unit.nama_unit as DIVISI');
+					unit.nama_unit as DIVISI,
+					grp.tgl_mulai,
+					grp.tgl_akhir');
 		$this->db->from('a_nasabah.cid as grp');
 		$this->db->join('a_nasabah.mapping_cid_npp as map_rm', 'map_rm.cid = grp.cid');
 		$this->db->join('a_pegawai.mapping_rm_unit as map_unit', 'map_unit.npp = map_rm.npp');

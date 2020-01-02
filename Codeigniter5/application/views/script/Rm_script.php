@@ -187,7 +187,7 @@
         $ele.empty();
 	    $ele.append($('<option/>').val('0').text('Pilih Nama Inisial'));
 	    $.each(Customers, function (i, val) {
-            if (val.tgl_akhir == '9999-12-31 23:59:59'){
+            if (val.tgl_akhir.substr(0,10) == '9999-12-31'){
 		$ele.append($('<option/>').val(val.cid).text(val.nama));
             }
 	})

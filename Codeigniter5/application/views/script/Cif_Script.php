@@ -202,12 +202,17 @@
                 data : { x: x, y: y },
                 success : function(data){
                     debugger;
+                    if (data.flag == 0){
+                            flag = "Tidak";
+                        } else {
+                            flag = "Ya";
+                        }
                     $('#HeaderForm').text(" Edit Data");
                     $('#id').val(data.NO_CIF);
                     $('#no_cif').val(data.NO_CIF);
 	                $('#customername').val(data.CUSTOMER_ID);
 	                $('#grup').val(data.grup);
-                    $('#flag').val(data.flag);
+                    $('#flag').val(flag);
                     $('#segmen').val(data.segmen);
 	                $('#divisi').val(data.DIVISI);
 	                $('#tgl_mulai').val(data.tgl_mulai.substr(0,10));
@@ -241,7 +246,9 @@
         $ele.empty();
 	    $ele.append($('<option/>').val('0').text('Pilih Nama Inisial'));
 	    $.each(Customers, function (i, val) {
+            if (val.tgl_akhir.substr(0,10) == '9999-12-31'){
 		$ele.append($('<option/>').val(val.cid).text(val.CUSTOMER_NAME));
+            }
 	})
     }
     loadCustomer($('#customername'));

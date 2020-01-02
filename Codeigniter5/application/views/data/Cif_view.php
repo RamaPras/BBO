@@ -111,7 +111,7 @@
                             					</div>
 											</div>
 											<div class="form-group row">
-                            					<label class="col-md-2 col-form-label">Flag</label>
+                            					<label class="col-md-2 col-form-label">Kementrian</label>
                             					<div class="col-md-10">
                               						<input type="text" name="flag" id="flag" class="form-control" placeholder="Flag" disabled>
                             					</div>
