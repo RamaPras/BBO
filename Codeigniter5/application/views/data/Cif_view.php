@@ -56,7 +56,7 @@
 					<div class="card mb-3">
 						<div class="card-header">
 							<a href="#formcif" data-toggle="modal" class="btn btn-green" onclick="submit('add',null)"><i class="fas fa-plus"></i> Add New</a>
-							<!--<a href="#" class="btn btn-orange" onclick="ResetTable()"><i class="fas fa-refresh"></i>Refresh</a>-->
+							<!--<a href="<?php echo base_url("Cif/export"); ?>" class="btn btn-orange"><i class="fa fa-file-excel"></i> Eksport Ke CSV</a>-->
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">

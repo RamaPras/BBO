@@ -22,9 +22,14 @@
                     success: function(data){
                         debugger;
                         $.each(data,function(cid, grup, flag, segmen){
+                            if (data.flag == 0){
+                            flag = "Tidak";
+                        } else {
+                            flag = "Ya";
+                        }
                             $('#cid').val(data.cid);
                             $('#grup').val(data.grup);
-                            $('#flag').val(data.flag);
+                            $('#flag').val(flag);
                             $('#segmen').val(data.segmen);
                         });
                     }
@@ -147,12 +152,17 @@
                 data : { cid: x, tgl: y },
                 success : function(data){
                     debugger;
+                    if (data.flag == 0){
+                            flag = "Tidak";
+                        } else {
+                            flag = "Ya";
+                        }
                     $('#HeaderForm').text(" Edit Data");
                     $('#id').val(data.CUSTOMER_ID);
                     $('#cid').val(data.CUSTOMER_ID);
 	                $('#customername').val(data.CUSTOMER_ID);
 	                $('#grup').val(data.grup);
-                    $('#flag').val(data.flag);
+                    $('#flag').val(flag);
                     $('#segmen').val(data.segmen);
 	                $('#rmname').val(data.INITIAL_RM);
                     $('#divisi').val(data.DIVISI);

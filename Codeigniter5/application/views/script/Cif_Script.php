@@ -64,8 +64,13 @@
                     success: function(data){
                         debugger;
                         $.each(data,function(cid, grup, flag, segmen,DIVISI){
+                            if (data.flag == 0){
+                            flag = "Tidak";
+                        } else {
+                            flag = "Ya";
+                        }
                             $('#grup').val(data.grup);
-                            $('#flag').val(data.flag);
+                            $('#flag').val(flag);
                             $('#segmen').val(data.segmen);
                             $('#divisi').val(data.DIVISI);
                         });

@@ -5,7 +5,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo SITE_NAME .": ". ucfirst($this->uri->segment(1)) ." - ". ucfirst($this->uri->segment(2)) ?></title>
+  <title><?php echo SITE_NAME ." : ". ucfirst($this->uri->segment(1)) ."  ". ucfirst($this->uri->segment(2)) ?></title>
 
 
 

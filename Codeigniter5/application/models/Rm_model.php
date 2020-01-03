@@ -16,11 +16,11 @@
         unit.nama_unit as DIVISI,
         map_rm.tgl_mulai,
         map_rm.tgl_akhir');
-        $this->db->from('a_nasabah.mapping_cid_npp as map_rm');
-        $this->db->join('a_nasabah.cid as grp', 'map_rm.cid = grp.cid');
-        $this->db->join('a_pegawai.mapping_rm_unit as map_unit', 'map_unit.npp = map_rm.npp');
-        $this->db->join('a_pegawai.p_rm as rm' , 'rm.npp = map_unit.npp');
-        $this->db->join('a_unit.p_unit as unit' , 'unit.kode_unit = map_unit.kode_unit');
+        $this->db->from('a_nasabah.mapping_cid_npp_test as map_rm');
+        $this->db->join('a_nasabah.cid_test as grp', 'map_rm.cid = grp.cid');
+        $this->db->join('a_pegawai.mapping_rm_unit_test as map_unit', 'map_unit.npp = map_rm.npp');
+        $this->db->join('a_pegawai.p_rm_test as rm' , 'rm.npp = map_unit.npp');
+        $this->db->join('a_unit.p_unit_test as unit' , 'unit.kode_unit = map_unit.kode_unit');
         $this->db->where('(1=1)
         and (map_rm.tgl_mulai <= sysdate() and map_rm.tgl_akhir >= sysdate())
         and (grp.tgl_mulai <= "2019-10-31 00:00:00" and grp.tgl_akhir >= "2019-10-31 00:00:00")
@@ -30,7 +30,7 @@
         return $this->db->get()->result();
     }
     public function getCID(){
-        $this->db->from('a_nasabah.cid');
+        $this->db->from('a_nasabah.cid_test');
         $this->db->order_by("nama", "asc");
         $query = $this->db->get(); 
         return $query->result();
@@ -38,7 +38,7 @@
     public function CIDbyID($cid){
         $data = array('cid' => $cid);
         $this->db->where($data);
-        $query = $this->db->get('a_nasabah.cid', $data);
+        $query = $this->db->get('a_nasabah.cid_test', $data);
        if($query->num_rows()>0){
            foreach ($query->result() as $data) {
                $hasil=array(
@@ -58,9 +58,9 @@
         unit.nama_unit as DIVISI,
         map_unit.tgl_mulai,
         map_unit.tgl_akhir');
-        $this->db->from('a_pegawai.mapping_rm_unit as map_unit');
-        $this->db->join('a_pegawai.p_rm as rm', 'rm.npp = map_unit.npp');
-        $this->db->join('a_unit.p_unit as unit' , 'unit.kode_unit = map_unit.kode_unit');
+        $this->db->from('a_pegawai.mapping_rm_unit_test as map_unit');
+        $this->db->join('a_pegawai.p_rm_test as rm', 'rm.npp = map_unit.npp');
+        $this->db->join('a_unit.p_unit_test as unit' , 'unit.kode_unit = map_unit.kode_unit');
         $this->db->where('(1=1)
         and (map_unit.tgl_mulai <= "2019-10-31 00:00:00" and map_unit.tgl_akhir >= "2019-10-31 00:00:00")
         and (unit.tgl_mulai <= "2019-10-31 00:00:00" and unit.tgl_akhir >= "2019-10-31 00:00:00")');
@@ -82,7 +82,7 @@
     } 
     
     public function save_data($data){
-        $this->db->insert('a_nasabah.mapping_cid_npp',$data);
+        $this->db->insert('a_nasabah.mapping_cid_npp_test',$data);
     }
 
     public function get_cif_id($cid, $tgl){
@@ -93,11 +93,11 @@
 
     public function edit_data($where, $data){
         $this->db->where($where);  
-        $this->db->update('a_nasabah.mapping_cid_npp',$data, $where);
+        $this->db->update('a_nasabah.mapping_cid_npp_test',$data, $where);
     }
     public function delete_data($where){
         $this->db->where($where);
-        $this->db->delete('a_nasabah.mapping_cid_npp', $where);
+        $this->db->delete('a_nasabah.mapping_cid_npp_test', $where);
     }
     
  }

@@ -41,6 +41,52 @@
             //output to json format
             echo json_encode($output);
         }
+        public function export(){
+            // Load plugin PHPExcel nya
+            include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+            
+            // Panggil class PHPExcel nya
+            $csv = new PHPExcel();
+            // Settingan awal fil excel
+            $csv->getProperties()->setCreator($this->session->userdata('nama'))
+                         ->setLastModifiedBy( $this->session->userdata('nama'))
+                         ->setTitle("Data CIF Grup ")
+                         ->setSubject("Mapping CIF Grup ")
+                         ->setDescription("Mapping CID CIF")
+                         ->setKeywords("Mapping CID CIF");
+            // Buat header tabel nya pada baris ke 1
+            $csv->setActiveSheetIndex(0)->setCellValue('A1', "NO"); // Set kolom A1 dengan tulisan "NO"
+            $csv->setActiveSheetIndex(0)->setCellValue('B1', "CIF"); // Set kolom B1 dengan tulisan "NIS"
+            $csv->setActiveSheetIndex(0)->setCellValue('C1', "CID"); // Set kolom C1 dengan tulisan "NAMA"
+            $csv->setActiveSheetIndex(0)->setCellValue('D1', "Nama Inisial"); // Set kolom D1 dengan tulisan "JENIS KELAMIN"
+            $csv->setActiveSheetIndex(0)->setCellValue('E1', "Tanggal Akhir"); // Set kolom E1 dengan tulisan "ALAMAT"
+            // Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
+            $cif = $this->Cif_model->export();
+            $no = 1; // Untuk penomoran tabel, di awal set dengan 1
+            $numrow = 2; // Set baris pertama untuk isi tabel adalah baris ke 2
+            foreach($cif as $data){ // Lakukan looping pada variabel siswa
+              $csv->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $no);
+              $csv->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->NO_CIF);
+              $csv->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->CUSTOMER_ID);
+              $csv->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->CUSTOMER_NAME);
+              $csv->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->tgl_akhir);
+              
+              $no++; // Tambah 1 setiap kali looping
+              $numrow++; // Tambah 1 setiap kali looping
+            }
+            // Set orientasi kertas jadi LANDSCAPE
+            $csv->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+            // Set judul file excel nya
+            $csv->getActiveSheet(0)->setTitle("Laporan Data Mapping CIF GRUP");
+            $csv->setActiveSheetIndex(0);
+            // Proses file excel
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment; filename="Data.csv"'); // Set nama file excel nya
+            header('Cache-Control: max-age=0');
+            $write = new PHPExcel_Writer_CSV($csv);
+            $write->save('php://output');
+          }
+        
         public function getCustomer(){
             $data = $this->Cif_model->getCID();
             echo json_encode($data);
