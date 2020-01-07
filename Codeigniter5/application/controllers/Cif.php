@@ -115,7 +115,7 @@
         public function edit(){          
             $id= $this->input->post('id');
             $tgl= $this->input->post('tgl');
-            $where = array('no_cif' => $id, 'tgl_mulai' => $tgl) ;
+            $where = array('no_cif' => $id, 'tgl_mulai' => $tgl);
             $data= array(
                 'no_cif'    => $this->input->post('no_cif'),
                 'cid'       => $this->input->post('cid'), 

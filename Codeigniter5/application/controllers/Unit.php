@@ -28,7 +28,7 @@
         }
         public function validrm(){
             $npp = $this->input->post('npp');
-            $sql = $this->db->query("SELECT npp FROM a_pegawai.p_rm where npp='$npp'");
+            $sql = $this->db->query("SELECT npp FROM a_pegawai.p_rm_test where npp='$npp'");
             $cek_npp = $sql->num_rows();
             echo json_encode($cek_npp);
         }

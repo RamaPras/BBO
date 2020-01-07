@@ -104,7 +104,9 @@
 		map_cif.tgl_mulai,
 		map_cif.tgl_akhir,
 		rm.nama RM_NAME,
-		unit.nama_unit DIVISI');
+		unit.nama_unit DIVISI,
+		map_cif.tgl_mulai,
+		map_cif.tgl_akhir');
 		$this->db->from('a_nasabah.cid_test as grp');
 		$this->db->join('a_nasabah.mapping_cid_cif_test as map_cif', 'grp.cid = map_cif.cid');
 		$this->db->join('a_nasabah.mapping_cid_npp_test as map_rm', 'map_rm.cid = grp.cid');
@@ -114,12 +116,11 @@
          $this->db->where(
              '(1=1) 
             and (map_cif.tgl_mulai <= sysdate() and map_cif.tgl_akhir >= sysdate())
-            and (grp.tgl_mulai <= "2019-10-31 00:00:00" and grp.tgl_akhir >= "2019-10-31 00:00:00")
-            and (map_rm.tgl_mulai <= "2019-10-31 00:00:00" and map_rm.tgl_akhir >= "2019-10-31 00:00:00")
-            and (map_unit.tgl_mulai <= "2019-10-31 00:00:00" and map_unit.tgl_akhir >= "2019-10-31 00:00:00")
-            and (unit.tgl_mulai <= "2019-10-31 00:00:00" and unit.tgl_akhir >= "2019-10-31 00:00:00")'
-		 );
-		 
+            and (grp.tgl_mulai <= sysdate() and grp.tgl_akhir >= sysdate())
+            and (map_rm.tgl_mulai <= sysdate() and map_rm.tgl_akhir >= sysdate())
+            and (map_unit.tgl_mulai <= sysdate() and map_unit.tgl_akhir >= sysdate())
+            and (unit.tgl_mulai <= sysdate() and unit.tgl_akhir >= sysdate())'
+		 );		 
 		return $this->db->count_all_results();
 	}
     public function getCID(){ 

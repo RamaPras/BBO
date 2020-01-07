@@ -57,6 +57,7 @@
 						<div class="card-header">
 							<a href="#formcif" data-toggle="modal" class="btn btn-green" onclick="submit('add',null)"><i class="fas fa-plus"></i> Add New</a>
 							<!--<a href="<?php echo base_url("Cif/export"); ?>" class="btn btn-orange"><i class="fa fa-file-excel"></i> Eksport Ke CSV</a>-->
+							<a href="<?php echo base_url("excel_import/form"); ?>" class="btn btn-orange"><i class="fa fa-upload"></i> Upload Data</a>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
