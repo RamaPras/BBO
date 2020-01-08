@@ -63,7 +63,8 @@ class Excel_import extends CI_Controller
 
 		// Cek jika data no cif sudah terdaftar pada database
 		if($sql->num_rows()>0)
-			continue; // Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
+			continue; 
+			// Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
 			// Cek $numrow apakah lebih dari 1
 			// Artinya karena baris pertama adalah nama-nama kolom
 			// Jadi dilewat saja, tidak usah diimport
