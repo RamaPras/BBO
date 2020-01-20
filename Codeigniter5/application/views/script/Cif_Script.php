@@ -128,7 +128,7 @@
                 "data": function ( data ) {
                 debugger;
                 data.CIF = $('#filnocif').val();
-                data.grup = $('#filgrup').val();
+                data.CUSTOMER_NAME = $('#filnama').val();
                 }
             },
 

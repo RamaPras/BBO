@@ -28,7 +28,7 @@
                 $row[] = $customers->grup;
                 $row[] = $customers->DIVISI;
                 $row[] = $customers->RM_NAME;
-                $row[] =  ' <a href="#formcif" data-toggle="modal" class="btn btn-green btn-sm" onclick="submit('."'".$customers->NO_CIF."'".','."'".$customers->tgl_mulai."'".')"><i class="fas fa-edit"></i> Edit</a> <a href="javascript:void(0);" class="btn btn-orange btn-sm" onclick="deleteConfirm('."'".$customers->NO_CIF."'".','."'".$customers->tgl_mulai."'".')"><i class="fas fa-trash"></i> Delete</a>';        
+                $row[] =  '<a href="#formcif" data-toggle="modal" class="btn btn-green btn-sm" onclick="submit('."'".$customers->NO_CIF."'".','."'".$customers->tgl_mulai."'".')"><i class="fas fa-edit"></i> Edit</a> <a href="javascript:void(0);" class="btn btn-orange btn-sm" onclick="deleteConfirm('."'".$customers->NO_CIF."'".','."'".$customers->tgl_mulai."'".')"><i class="fas fa-trash"></i> Delete</a>';        
                 $data[] = $row;
             }
     
