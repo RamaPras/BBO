@@ -1,9 +1,27 @@
-    <nav class="navbar  navbar-expand navbar-light bg-orange topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+<nav class="navbar  navbar-expand navbar-light bg-green topbar mb-4 static-top shadow">
+    <ul class="navbar-nav">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center">
+        <i> <img class="img-profile" src="<?php echo base_url('assets/BNI46.png') ?>" width="70 px"></i>
+        <div class="sidebar-brand-text mx-3">         </div>
+      </a>
+    <hr class="navbar-divider"> 
+      <li class="nav-item"<?php echo $this->uri->segment(2) == 'Utilities' ? 'active': '' ?>>
+        <a class="nav-link" href="<?php echo base_url(); ?>User/">
+          <span class="text-light"> <i class="fas fa-user"></i> User </span>
+        </a>
+      </li>
+      <hr class="navbar-divider"> 
+      <li class="nav-item"<?php echo $this->uri->segment(2) == 'Utilities' ? 'active': '' ?>>
+        <a class="nav-link" href="<?php echo base_url(); ?>User_Role/">
+          <span class="text-light"><i class="fas fa-users"></i> User Role </span>
+        </a>
+      </li>
+      <li class="nav-item"<?php echo $this->uri->segment(2) == 'Utilities' ? 'active': '' ?>>
+        <a class="nav-link" href="<?php echo base_url(); ?>Admin/">
+          <span class="text-light"><i class="fas fa-user-circle"></i> Admin </span>
+        </a>
+      </li>
+    </ul> 
            
           <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
@@ -18,7 +36,7 @@
           
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
+          
             <!-- Nav Item - Search Dropdown (Visible Only XS) 
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -150,7 +168,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-lg-inline text-white"><?php echo $this->session->userdata('nama');?></span>  
+              <span class="mr-2 d-lg-inline text-light"><?php echo $this->session->userdata('nama');?></span>  
               <img class="img-profile rounded-circle" src="<?php echo base_url('assets/user.png') ?>">
               </a>
               <!-- Dropdown - User Information -->
@@ -183,7 +201,7 @@
         debugger;
             $.ajax({
                 type : "POST",
-                url : "<?php echo site_url()?>/User/getbyId",
+                url : "<?php echo site_url()?>/Admin/getbyId",
                 dataType : "JSON",
                 data : { id: x},
                 success : function(data){

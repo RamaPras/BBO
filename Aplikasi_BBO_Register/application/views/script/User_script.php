@@ -32,7 +32,7 @@
                             status = "Aktif";
                         }
                         html += '<tr>';
-					//html += '<td style="text-align:left">' + i + '</td>';
+					html += '<td style="text-align:center">' + i + '</td>';
                     html += '<td style="text-align:left">' +val.npp+ '</td>';
                     html += '<td style="text-align:left">' +val.nama+ '</td>';
                     html += '<td style="text-align:left">' +val.email+ '</td>';
@@ -43,7 +43,7 @@
                     html += '<td style="text-align:center">' +val.Update + '</td>';
                     html += '<td style="text-align:center">' +val.Expire + '</td>';
 					html += '<td style="text-align:center">';
-					html += ' <a href="#formuser" data-toggle="modal" class="btn btn-green btn-sm" onclick="submit(\''+val.id+'\')"> Edit</a></td>';
+					html += ' <a href="#formuser" data-toggle="modal" class="btn btn-orange btn-sm" onclick="submit(\''+val.id+'\')"> Edit</a></td>';
 					// html += ' <a href="javascript:void(0);" class="btn btn-orange btn-sm" onclick="ResetPswd(\''+val.user_id+'\',\''+val.nama+'\')"> Reset Password</a>;
 					html += '</tr>';
 					i++;
@@ -262,7 +262,7 @@
                     Clearscreen();
                     setTimeout(function(){ 
                         $("#formuser").modal('hide');
-                        }, 5500);
+                        }, 6000);
                         ResetTable();
                 }
             });
@@ -289,7 +289,7 @@
                     Swal.fire({ position: 'center', type: 'success',title: 'Update Successfully'});
                     setTimeout(function(){ 
                         $("#formuser").modal('hide');
-                        }, 5500);
+                        }, 6000);
                         ResetTable();
                 }
             });

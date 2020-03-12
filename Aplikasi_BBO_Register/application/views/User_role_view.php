@@ -11,7 +11,6 @@
   	<div id="wrapper">
 
     	<!-- Sidebar -->
-			<?php $this->load->view('admin/partials/sidebar');?>
 		<!-- End of Sidebar -->
 
     	<!-- Content Wrapper -->
@@ -33,7 +32,7 @@
 						<!-- DataTables -->
 					<div class="card mb-3">
 						<div class="card-header">
-							<a href="#formuserRole" data-toggle="modal" class="btn btn-green" onclick="submit('a', 'd', 'd')"><i class="fas fa-plus"></i> Add New</a>
+							<a href="#formuserRole" data-toggle="modal" class="btn btn-orange" onclick="submit('a', 'd', 'd')"><i class="fas fa-plus"></i> Add New</a>
 							<!--<a href="#" class="btn btn-orange" onclick="ResetTable()"><i class="fas fa-refresh"></i>Refresh</a>-->
 						</div>
 						<div class="card-body">
@@ -112,10 +111,10 @@
 						</div><!--Card Body-->
 					</div><!--Card MB3-->
 				</div><!-- /.container-fluid -->
-      			<!-- Footer -->
-      			<?php $this->load->view('admin/partials/footer'); ?>
-      			<!-- End of Footer -->
-    		</div><!-- End of Content -->
+			</div><!-- End of Content -->
+			<!-- Footer -->
+			<?php $this->load->view('admin/partials/footer'); ?>
+      		<!-- End of Footer -->
   		</div><!-- End of Page Wrapper -->
 	</div><!--Wrapper-->
   <!-- Scroll to Top Button-->

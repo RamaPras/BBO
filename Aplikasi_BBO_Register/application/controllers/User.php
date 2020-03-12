@@ -3,6 +3,7 @@
         public function __construct(){
             parent::__construct();
             $this->load->helper('url');
+            $this->load->helper('form');
             $this->load->library('session');
             $this->load->model("User_model");
             $this->load->library("form_validation");
@@ -11,11 +12,53 @@
               }
         }
         public function index(){
-            // if($this->session->userdata('category')==='ADM'){
+            if($this->session->userdata('category')==='ADM'){
                 $this->load->view('user_view');
-            // }else{
-            //     echo "Access Denied";
-            // }
+            }else{
+                $this->load->view('errors/error_404');
+            }
+        }
+        public function Email(){
+            if($this->session->userdata('category')==='ADM'){
+                $this->load->view('Email_view');
+            }else{
+                $this->load->view('errors/error_404');
+            }
+        }
+        public function send_email(){
+            $from_email = $this->input->post('myemail');
+            $from_name = $this->input->post('myname'); 
+            $to_email = $this->input->post('email');
+            $cc = $this->input->post('cc');
+            $bcc = $this->input->post('bcc');
+            $subjek = $this->input->post('subjek');
+            $pesan = $this->input->post('pesan'); 
+        
+            $config = Array(
+                'mailtype'  => 'html',
+                'charset'   => 'utf-8',
+                'protocol'  => 'smtp',
+                'smtp_host' => 'smtp.gmail.com',
+                'smtp_user' => $from_email,  // Email gmail
+                'smtp_pass'   => 'Ramadhan12',  // Password gmail
+                'smtp_crypto' => 'ssl',
+                'smtp_port'   => 465,
+                'crlf'    => "\r\n",
+                'newline' => "\r\n"
+        );
+
+            $this->load->library('email', $config);   
+
+         $this->email->from($from_email, $from_name); 
+         $this->email->to($to_email);
+         $this->email->subject($subjek); 
+         $this->email->message($pesan); 
+            if($this->email->send()){
+                echo 'Sukses! email berhasil dikirim.';
+            }else {
+                echo 'Gagal! email tidak dapat dikirim.';
+     } 
+
         }
         public function data_list(){
             $data = $this->User_model->getAll();
@@ -54,12 +97,7 @@
                 'HakAdmin'      => 0,
                 'HakUpdate'      => 0,
                 'Statusnya'     => $sts,
-            );
-            // $data2 = array(
-            //     'UserID' => $id,
-            //     'role'   => $this->input->post('kategori'),
-            //     'Unit'   => $this->input->post('hc'),
-            // ); 
+            ); 
         $result = $this->User_model->save_data($data);
         echo json_encode($result);
         }
@@ -96,48 +134,9 @@
                 'Update'       => $update,
                 'Expire'       => $expire,
             );
-            // $data2 = array(
-            //     'UserID' => $id,
-            //     'role' => $this->input->post('kategori'),
-            //     'unit' => $this->input->post('hc'),
-            //     'update' => $update,
-            //     'expiry_date'  => $expire,
-            // );
             $result = $this->User_model->edit_data($where, $data);
             echo json_encode($result);
         }
-
-    public function reset_password(){
-            // $id= $this->input->post('id');
-            // $where = array('user_id' => $id) ;
-            // $nama = $this->input->post('nama');
-            // $nama4 = substr($nama,0,4);
-            // $id3 = substr($id,2);
-            // $password = $nama4.$id3;
-            // $data = array(
-            //     'password' => MD5($password),
-            // );
-            // $result = $this->User_model->reset_pass($where, $data);
-            // echo json_encode($result);
-        }
-
-    public function oldpass(){
-        // $id = $this->input->post('id');
-        // $pass =MD5($this->input->post('oldpass'));
-        // $sql = $this->db->query("SELECT user_id FROM dpk_map.user where user_id = '$id' AND password ='$pass'");
-        // $cek_npp = $sql->num_rows();
-        // echo json_encode($cek_npp);
-    }
-
-    public function Change(){
-        // $id= $this->input->post('id');
-        // $where = array('user_id' => $id);
-        // $data = array(
-        //     'password' => MD5($this->input->post('newpass')),
-        // );
-        // $result = $this->User_model->change_pass($where, $data);
-        // echo json_encode($result);
-    }
 
     }
 ?>

@@ -32,7 +32,7 @@
                             status = "Aktif";
                         }
                         html += '<tr>';
-					html += '<td style="text-align:left">' + i + '</td>';
+					html += '<td style="text-align:center">' + i + '</td>';
                     html += '<td style="text-align:left">' +val.npp+ '</td>';
                     html += '<td style="text-align:left">' +val.nama+ '</td>';
                     html += '<td style="text-align:center">' +val.role+ '</td>';
@@ -40,7 +40,7 @@
                     html += '<td style="text-align:center">' +val.update + '</td>';
                     html += '<td style="text-align:center">' +val.expiry + '</td>';
 					html += '<td style="text-align:center">';
-					html += ' <a href="#formuserRole" data-toggle="modal" class="btn btn-green btn-sm" onclick="submit(\''+val.id+'\',\''+val.role+'\',\''+val.unit+'\')"> Edit</a></td>';
+					html += ' <a href="#formuserRole" data-toggle="modal" class="btn btn-orange btn-sm" onclick="submit(\''+val.id+'\',\''+val.role+'\',\''+val.unit+'\')"> Edit</a></td>';
 					// html += ' <a href="javascript:void(0);" class="btn btn-orange btn-sm" onclick="ResetPswd(\''+val.user_id+'\',\''+val.nama+'\')"> Reset Password</a>;
 					html += '</tr>'; 
 					i++;
@@ -132,7 +132,7 @@
             $('#add').hide();
             $('#edit').show();
             $('#tgl_exp').show();
-            $('#form_id').show();
+            $('#form_id').hide();
             $.ajax({
                 type : "POST",
                 url : "<?php echo site_url()?>/User_Role/getbyId",
@@ -227,7 +227,7 @@
                     Clearscreen();
                     setTimeout(function(){ 
                         $("#formuserRole").modal('hide');
-                        }, 5500);
+                        }, 6000);
                         ResetTable();
                 }
             });
@@ -252,7 +252,7 @@
                     Swal.fire({ position: 'center', type: 'success',title: 'Update Successfully'});
                     setTimeout(function(){ 
                         $("#formuserRole").modal('hide');
-                        }, 5500);
+                        }, 6000);
                         ResetTable();
                 }
             });

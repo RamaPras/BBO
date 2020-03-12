@@ -6,7 +6,7 @@
         }
         
         public function isLogin($npp, $password){
-            return $this->db->get_where('dpk_map.user', array('npp'=>$npp,'password'=>$password, 'status'=> 1));
+            return $this->db->get_where('bbo_user.admin', array('npp'=>$npp,'password'=>$password, 'status'=> 1));
         }
     }
 ?>

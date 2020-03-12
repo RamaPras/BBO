@@ -11,7 +11,7 @@
   	<div id="wrapper">
 
     	<!-- Sidebar -->
-			<?php $this->load->view('admin/partials/sidebar');?>
+			
 		<!-- End of Sidebar -->
 
     	<!-- Content Wrapper -->
@@ -27,13 +27,13 @@
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
             			<h1 class="h3 mb-0 text-gray-800"> USER </h1>
-            			<!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
+            			<!-- <a href="<?php echo base_url(); ?>User/Email" class="btn btn-orange shadow-sm"><i class="fas fa-envelope"></i> Kirim Email</a> -->
 					</div>
 
 						<!-- DataTables -->
 					<div class="card mb-3">
 						<div class="card-header">
-							<a href="#formuser" data-toggle="modal" class="btn btn-green" onclick="submit('add')"><i class="fas fa-plus"></i> Add New</a>
+							<a href="#formuser" data-toggle="modal" class="btn btn-orange" onclick="submit('add')"><i class="fas fa-plus"></i> Add New</a>
 							<!--<a href="#" class="btn btn-orange" onclick="ResetTable()"><i class="fas fa-refresh"></i>Refresh</a>-->
 						</div>
 						<div class="card-body">
@@ -41,6 +41,7 @@
 								<table id="myUser" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
 									<thead class="btn-green">
 										<tr>
+											<th style="text-align:center" width="3%">No</th>
 											<th style="text-align:center" width="5%">NPP</th>
 											<th style="text-align:center" width="15%">Nama</th>
 											<th style="text-align:center" width="15%">Email</th>
@@ -158,10 +159,10 @@
 						</div><!--Card Body-->
 					</div><!--Card MB3-->
 				</div><!-- /.container-fluid -->
-      			<!-- Footer -->
-      			<?php $this->load->view('admin/partials/footer'); ?>
-      			<!-- End of Footer -->
-    		</div><!-- End of Content -->
+			</div><!-- End of Content -->
+			<!-- Footer -->
+			<?php $this->load->view('admin/partials/footer'); ?>
+      		<!-- End of Footer -->
   		</div><!-- End of Page Wrapper -->
 	</div><!--Wrapper-->
   <!-- Scroll to Top Button-->

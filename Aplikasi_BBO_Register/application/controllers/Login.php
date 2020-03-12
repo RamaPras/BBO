@@ -28,12 +28,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $user_id  = $data['user_id'];
                 $npp = $data['npp'];
                 $nama = $data['nama'];
+                $email = $data['email'];
                 $password = $data['password'];
                 $category = $data['category'];
                 $sesdata = array(
                     'user_id'   => $user_id,
                     'npp'       => $npp,
                     'nama'      => $nama,
+                    'email'      => $email,
                     'password'  => $password,
                     'category'  => $category,
                     'logged_in' => TRUE

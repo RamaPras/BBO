@@ -22,7 +22,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+          <h5 class="modal-title" id="ChangePass">Change Password</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -54,7 +54,7 @@
         var oldpass = $('#OldPass').val(); 
 		$.ajax({
                 type : "POST",
-                url  : "<?php echo site_url()?>/User/oldpass",
+                url  : "<?php echo site_url()?>/Admin/oldpass",
                 dataType : "JSON",
                 data : {id: id, oldpass:oldpass},
                 success: function(data){
@@ -88,7 +88,7 @@
 	      var passconf = $('#PassConfirm').val(); 
 		$.ajax({
                 type : "POST",
-                url  : "<?php echo site_url()?>/User/Change",
+                url  : "<?php echo site_url()?>/Admin/Change",
                 dataType : "JSON",
                 data : {id: id, oldpass:oldpass, newpass:newpass , passconf: passconf},
                 success: function(data){

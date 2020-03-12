@@ -28,12 +28,17 @@
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item"<?php echo $this->uri->segment(2) == 'Utilities' ? 'active': '' ?>>
   <a class="nav-link" href="<?php echo base_url(); ?>User">
-    <span>USER</span>
+    <span><i class="fas fa-users"></i>USER</span>
   </a>
 </li>
 <li class="nav-item"<?php echo $this->uri->segment(2) == 'Utilities' ? 'active': '' ?>>
   <a class="nav-link" href="<?php echo base_url(); ?>User_Role">
-    <span>User Role</span>
+    <span><i class="fas fa-users"></i>User Role</span>
+  </a>
+</li>
+<li class="nav-item"<?php echo $this->uri->segment(2) == 'Utilities' ? 'active': '' ?>>
+  <a class="nav-link" href="<?php echo base_url(); ?>Admin">
+    <span><i class="fas fa-user"></i>Admin</span>
   </a>
 </li>
 

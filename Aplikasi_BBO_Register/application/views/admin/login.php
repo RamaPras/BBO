@@ -7,23 +7,16 @@
 
 <body class="bg-green">
 <div class="container">
-
-<!-- Outer Row -->
-<div class="row justify-content-center">
-
-  <div class="col-xl-10 col-lg-12 col-md-9">
-
-    <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="col-lg-6 d-none d-lg-block"><img src="<?php echo base_url('assets/BNI3.jpg') ?>" width="400 px"></div>
-          <div class="col-lg-6">
-            <div class="p-5">
-              <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">LOGIN</h1>
-              </div>
-              <form class="user">
+<img class="img-profile" src="<?php echo base_url('assets/BNI46.png') ?>"  width="15%" height="15%" style="display: block; margin: auto;">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-header">
+            <h3 class="card-title text-center">LOGIN</h3>
+          </div>
+          <div class="card-body">
+           
+                  <form class="user">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="Npp" placeholder="NPP">
                     </div>
@@ -32,29 +25,16 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <!-- <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label> -->
+                      
                       </div>
                     </div>
                     <a href="#" class="btn btn-orange btn-user btn-block" id="submit" > LOGIN </a>
                   </form>
-             <!-- <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="register.html">Create an Account!</a>
-              </div>-->
-            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
-</div>
-
-</div>
  
 
   <!-- Bootstrap core JavaScript-->
@@ -65,7 +45,7 @@
 	      var nppReg = /^P0([0-9]{5,5})$/i;
 	      return nppReg.test(npp);
     }
-
+ 
         $(document).ready(function(){  
         $("#submit").click(function(){  
         let npp = $("#Npp").val();

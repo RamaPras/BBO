@@ -11,11 +11,11 @@
               }
         }
         public function index(){
-            // if($this->session->userdata('category')==='ADM'){
+            if($this->session->userdata('category')==='ADM'){
                 $this->load->view('user_role_view');
-            // }else{
-            //     echo "Access Denied";
-            // }
+            }else{
+                $this->load->view('errors/error_404');
+            }
         }
         public function data_list(){
             $data = $this->User_Role_model->getAll();
